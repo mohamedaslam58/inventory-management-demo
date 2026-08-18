@@ -1,0 +1,12 @@
+# Node & Angular
+node_modules/
+.angular/
+dist/
+.vscode/
+.idea/
+
+# Environment local overrides
+.env
+
+# Windows
+desktop.ini

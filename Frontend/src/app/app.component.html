@@ -1,0 +1,63 @@
+<div style="padding: 30px;">
+
+  <h2>Simple Inventory Assessment Demo</h2>
+
+  <dx-data-grid
+    [dataSource]="dataSource"
+    [showBorders]="true"
+    [columnAutoWidth]="true"
+    [remoteOperations]="true"
+    [rowAlternationEnabled]="true">
+
+    <!-- Global Search Bar -->
+    <dxo-search-panel
+      [visible]="true"
+      [width]="240"
+      placeholder="Search items...">
+    </dxo-search-panel>
+
+    <!-- Paging and Pager Options -->
+    <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 20]"
+      [showInfo]="true">
+    </dxo-pager>
+
+    <!-- Inline Row Editing Configuration -->
+    <dxo-editing
+      mode="row"
+      [allowAdding]="true"
+      [allowUpdating]="true"
+      [allowDeleting]="true"
+      [useIcons]="true">
+    </dxo-editing>
+
+    <!-- Column Definitions -->
+    <dxi-column
+      dataField="id"
+      caption="ID"
+      [allowEditing]="false"
+      [width]="80"
+      alignment="center">
+    </dxi-column>
+
+    <dxi-column
+      dataField="name"
+      caption="Item Name">
+      <dxi-validation-rule type="required" message="Item Name is required"></dxi-validation-rule>
+    </dxi-column>
+
+    <dxi-column
+      dataField="price"
+      caption="Price"
+      dataType="number"
+      format="$#,##0.00"
+      alignment="right">
+      <dxi-validation-rule type="required" message="Price is required"></dxi-validation-rule>
+      <dxi-validation-rule type="range" [min]="0" message="Price must be non-negative"></dxi-validation-rule>
+    </dxi-column>
+
+  </dx-data-grid>
+
+</div>
